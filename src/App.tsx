@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, /* ReactDOM */ } from "react";
 import "./App.scss";
 import t from "../src/translation/textSpanish.json";
 import Home from "./components/home/home";
@@ -10,7 +10,7 @@ const componentMap: Record<string, React.FC> = {
   Inicio: Home,
   Servicios: Services,
   Productos: Products,
-  Contacto: Contact
+  Contacto: Contact,
 };
 
 const App: React.FC = () => {
@@ -28,7 +28,9 @@ const App: React.FC = () => {
         {t.header.map((item, index) => (
           <li className="items" key={index}>
             <button
-              className={`items_options ${selectedItem === item.content ? "selected" : ""}`}
+              className={`items_options ${
+                selectedItem === item.content ? "selected" : ""
+              }`}
               onClick={() => handleClick(item.content)}
             >
               {item.content}
@@ -36,9 +38,7 @@ const App: React.FC = () => {
           </li>
         ))}
       </header>
-      <div>
-        {SelectedComponent && <SelectedComponent />}
-      </div>
+      <div>{SelectedComponent && <SelectedComponent />}</div>
     </div>
   );
 };
