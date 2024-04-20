@@ -1,0 +1,36 @@
+{
+  "header": [
+    {
+      "content": "Inicio"
+    },
+    {
+      "content": "Servicios"
+    },
+    {
+      "content": "Productos"
+    },
+    {
+      "content": "Contacto"
+    }
+  ],
+  "home": [
+    {
+      "title": "Bienvenidos a ArtCamla"
+    }
+  ],
+  "services": [
+    {
+      "title": "Nuestros Servicios"
+    }
+  ],
+  "products": [
+    {
+      "title": "Nuestros Productos"
+    }
+  ],
+  "contacto": [
+    {
+      "title": "Contáctanos"
+    }
+  ]
+}
