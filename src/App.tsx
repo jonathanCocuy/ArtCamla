@@ -1,44 +1,32 @@
-import React, { useState, /* ReactDOM */ } from "react";
+/* React */
+import React, { useState } from "react";
+import { BrowserRouter as Router, Route, Link, Routes } from "react-router-dom";
+
+/* Styles */
 import "./App.scss";
-import t from "../src/translation/textSpanish.json";
+
+/* Texts translation */
+import data from "../src/translation/textSpanish.json";
+
+/* Components */
 import Home from "./components/home/home";
 import Services from "./components/services/services";
 import Products from "./components/products/products";
 import Contact from "./components/contact/contact";
 
-const componentMap: Record<string, React.FC> = {
-  Inicio: Home,
-  Servicios: Services,
-  Productos: Products,
-  Contacto: Contact,
-};
-
 const App: React.FC = () => {
-  const [selectedItem, setSelectedItem] = useState<string>("");
+  // Estado para guardar el identificador del elemento de navegación activo
+  const [activeItemNav, setItemNav] = useState("");
 
-  const handleClick = (content: string) => {
-    setSelectedItem(content);
+  // Función para manejar el clic en un elemento de navegación
+  const handleItemClick = (content: string) => {
+    // Actualiza el estado con el identificador del elemento clicado
+    setItemNav(content);
   };
-
-  const SelectedComponent = componentMap[selectedItem];
 
   return (
     <div>
-      <header className="navegation_bar">
-        {t.header.map((item, index) => (
-          <li className="items" key={index}>
-            <button
-              className={`items_options ${
-                selectedItem === item.content ? "selected" : ""
-              }`}
-              onClick={() => handleClick(item.content)}
-            >
-              {item.content}
-            </button>
-          </li>
-        ))}
-      </header>
-      <div>{SelectedComponent && <SelectedComponent />}</div>
+      <p>Hola</p>
     </div>
   );
 };
