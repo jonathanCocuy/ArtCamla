@@ -11,6 +11,32 @@
     },
     {
       "content": "Contacto"
+    },
+    {
+      "content": "Iniciar Sesión"
+    },
+    {
+      "content": "Registrarse"
+    }
+  ],
+  "login": [
+    {
+      "login": "Inicia Sesión",
+      "username": "Ingresa tu usuario",
+      "password": "Ingresa tu contraseña",
+      "button": "Ingresar"
+    }
+  ],
+  "signup": [
+    {
+      "signup": "Registrate",
+      "name": "Ingresa tu nombre",
+      "lastname": "Ingresa tu apellido",
+      "username": "Ingresa tu usuario",
+      "email": "Ingresa tu correo electrónico",
+      "password": "Ingresa tu contraseña",
+      "cmpassword": "Confirma tu contraseña",
+      "button": "Enviar"
     }
   ],
   "home": [

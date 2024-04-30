@@ -1,13 +1,14 @@
 import React from "react";
 import t from "../../translation/textSpanish.json";
+import NavBarLayout from "../../layout/NavBarLayout";
 
 const Products = () => {
   return (
-    <div>
+    <NavBarLayout>
       {t.products.map((item) => (
         <h1>{item.title}</h1>
       ))}
-    </div>
+    </NavBarLayout>
   );
 };
 

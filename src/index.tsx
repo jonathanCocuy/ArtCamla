@@ -1,17 +1,43 @@
 import React from "react";
 import ReactDOM from "react-dom/client";
-import "./index.scss";
 import reportWebVitals from "./reportWebVitals";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 
-import Login from "./routes/Login";
+//Styles
+import "./index.scss";
+
+//Components
+import Home from "./components/home/home";
+import Services from "./components/services/services";
+import Products from "./components/products/products";
+import Contact from "./components/contact/contact";
+
+//Routes Auth
+import { AuthProvider } from "./auth/authProvider";
 import SignUp from "./routes/SignUp";
+import Login from "./routes/Login";
 import Dashboard from "./routes/Dashboard";
 import ProtectRoute from "./routes/ProtectRoute";
 
 const router = createBrowserRouter([
   {
     path: "/",
+    element: <Home />,
+  },
+  {
+    path: "/services",
+    element: <Services />,
+  },
+  {
+    path: "/products",
+    element: <Products />,
+  },
+  {
+    path: "/contact",
+    element: <Contact />,
+  },
+  {
+    path: "/login",
     element: <Login />,
   },
   {
@@ -35,7 +61,9 @@ const root = ReactDOM.createRoot(
 );
 root.render(
   <React.StrictMode>
-    <RouterProvider router={router} />
+    <AuthProvider>
+      <RouterProvider router={router} />
+    </AuthProvider>
   </React.StrictMode>
 );
 

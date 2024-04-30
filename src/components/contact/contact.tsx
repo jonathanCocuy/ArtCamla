@@ -1,13 +1,14 @@
 import React from "react";
 import t from "../../translation/textSpanish.json";
+import NavBarLayout from "../../layout/NavBarLayout";
 
 const Contact = () => {
   return (
-    <div>
+    <NavBarLayout>
       {t.contacto.map((item) => (
         <h1>{item.title}</h1>
       ))}
-    </div>
+    </NavBarLayout>
   );
 };
 
