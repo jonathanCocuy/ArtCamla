@@ -25,7 +25,7 @@ export default function Login() {
       <div className="container_login">
         {data.login.map((text: any) => (
           <form className="form_login" onSubmit={handleSubmit}>
-            <h1>{text.login}</h1>
+            <h1 className="title_login">{text.login}</h1>
             <div className="container_inputs">
               <input
                 className="input_login"
@@ -41,8 +41,8 @@ export default function Login() {
                 value={password}
                 onChange={(e) => setPassword(e.target.value)}
               />
+              <button className="button_login" type="submit">{text.button}</button>
             </div>
-            <button type="submit">{text.button}</button>
           </form>
         ))}
       </div>
