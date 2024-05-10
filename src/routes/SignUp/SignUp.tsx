@@ -1,7 +1,7 @@
-import data from "../translation/textSpanish.json";
-import NavBarLayout from "../layout/NavBarLayout";
+import data from "../../translation/textSpanish.json";
+import NavBarLayout from "../../layout/NavBarLayout";
 import { useState } from "react";
-import { useAuth } from "../auth/authProvider";
+import { useAuth } from "../../auth/authProvider";
 import { Navigate } from "react-router-dom";
 
 export default function SignUp() {

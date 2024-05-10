@@ -14,10 +14,10 @@ import Contact from "./components/contact/contact";
 
 //Routes Auth
 import { AuthProvider } from "./auth/authProvider";
-import SignUp from "./routes/SignUp";
-import Login from "./routes/Login";
-import Dashboard from "./routes/Dashboard";
-import ProtectRoute from "./routes/ProtectRoute";
+import SignUp from "./routes/SignUp/SignUp";
+import Login from "./routes/Login/Login";
+import Dashboard from "./routes/Dashboard/Dashboard";
+import ProtectRoute from "./routes/Security/ProtectRoute";
 
 const router = createBrowserRouter([
   {
