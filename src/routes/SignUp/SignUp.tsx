@@ -3,45 +3,69 @@ import NavBarLayout from "../../layout/NavBarLayout";
 import { useState } from "react";
 import { useAuth } from "../../auth/authProvider";
 import { Navigate } from "react-router-dom";
+import { API_URL } from "../../auth/constants";
+import { AuthResponseError } from "../../interface/types";
 
 export default function SignUp() {
   const [name, setName] = useState("");
-  const [lastname, setLastname] = useState("");
   const [username, setUsername] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [confirmPassword, setConfirmPassword] = useState("");
+  const [errorResponse, setErrorResponse] = useState("");
   const auth = useAuth();
 
   if (auth.isAuthenticated) {
     return <Navigate to="/dashboard" />;
   }
 
-  const handleSubmit = (e: any) => {
+  async function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
     e.preventDefault();
-    if (password !== confirmPassword) {
-      alert("Passwords do not match");
-      return;
+
+    try {
+      const response = await fetch(`${API_URL}/signup`, {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          username,
+          email,
+          name,
+          password,
+        }),
+      });
+
+      if (response.ok) {
+        console.log("El usuario se creo correctamente");
+      } else {
+        console.error("Algo ocurrio");
+        const json = (await response.json()) as AuthResponseError;
+        setErrorResponse(json.body.error);
+      }
+    } catch (error) {
+      console.log(error);
     }
-  };
+
+    if(password !== confirmPassword) {
+      return 
+    }
+  }
 
   return (
     <NavBarLayout>
       <div>
         {data.signup.map((text: any) => (
-          <form onSubmit={handleSubmit}>
+          <form onSubmit={handleSubmit}> 
             <h1>{text.signup}</h1>
+            {!!errorResponse && (
+              <div className="errorMessage">{errorResponse}</div>
+            )}
             <input
               type="text"
               placeholder={text.name}
               value={name}
               onChange={(e) => setName(e.target.value)}
-            />
-            <input
-              type="text"
-              placeholder={text.lastname}
-              value={lastname}
-              onChange={(e) => setLastname(e.target.value)}
             />
             <input
               type="text"
@@ -67,6 +91,9 @@ export default function SignUp() {
               value={confirmPassword}
               onChange={(e) => setConfirmPassword(e.target.value)}
             />
+            {!!errorResponse && (
+              <div className="errorMessage">{errorResponse}</div>
+            )}
             <button type="submit">{text.button}</button>
           </form>
         ))}

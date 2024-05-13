@@ -1,3 +1,3 @@
 export interface ITexts {
-    title: string;
+  title: string;
 }

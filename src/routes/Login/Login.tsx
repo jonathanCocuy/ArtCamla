@@ -24,7 +24,7 @@ export default function Login() {
     <NavBarLayout>
       <div className="container_login">
         {data.login.map((text: any) => (
-          <form className="form_login" onSubmit={handleSubmit}>
+          <form key={text.id} className="form_login" onSubmit={handleSubmit}>
             <h1 className="title_login">{text.login}</h1>
             <div className="container_inputs">
               <input

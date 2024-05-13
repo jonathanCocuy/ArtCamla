@@ -36,6 +36,7 @@
       "email": "Ingresa tu correo electrónico",
       "password": "Ingresa tu contraseña",
       "cmpassword": "Confirma tu contraseña",
+      "wrongpassword": "Contraseñas no coinciden",
       "button": "Enviar"
     }
   ],
