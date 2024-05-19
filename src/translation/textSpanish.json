@@ -37,6 +37,8 @@
       "password": "Ingresa tu contraseña",
       "cmpassword": "Confirma tu contraseña",
       "wrongpassword": "Contraseñas no coinciden",
+      "seepassword": "Mostrar contraseña",
+      "forgetpwd": "¿Olvidaste tu contraseña?",
       "button": "Enviar"
     }
   ],

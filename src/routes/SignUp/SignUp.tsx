@@ -1,5 +1,7 @@
 import data from "../../translation/textSpanish.json";
 import NavBarLayout from "../../layout/NavBarLayout";
+import Swal from "sweetalert2";
+import "./SignUp.scss";
 import { useState } from "react";
 import { useAuth } from "../../auth/authProvider";
 import { Navigate } from "react-router-dom";
@@ -18,6 +20,14 @@ export default function SignUp() {
   if (auth.isAuthenticated) {
     return <Navigate to="/dashboard" />;
   }
+
+  const alert1 = () => {
+    Swal.fire({
+      icon: "error",
+      title: "Oops...",
+      text: "Las contraseñas no coinciden",
+    });
+  };
 
   async function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
     e.preventDefault();
@@ -47,54 +57,68 @@ export default function SignUp() {
       console.log(error);
     }
 
-    if(password !== confirmPassword) {
-      return 
+    if (password !== confirmPassword) {
+      return alert(alert1());
     }
   }
 
   return (
     <NavBarLayout>
-      <div>
+      <div className="container_signup">
         {data.signup.map((text: any) => (
-          <form onSubmit={handleSubmit}> 
-            <h1>{text.signup}</h1>
+          <form onSubmit={handleSubmit} className="form_signup">
+            <h1 className="title_signup">{text.signup}</h1>
             {!!errorResponse && (
               <div className="errorMessage">{errorResponse}</div>
             )}
-            <input
-              type="text"
-              placeholder={text.name}
-              value={name}
-              onChange={(e) => setName(e.target.value)}
-            />
-            <input
-              type="text"
-              placeholder={text.username}
-              value={username}
-              onChange={(e) => setUsername(e.target.value)}
-            />
-            <input
-              type="email"
-              placeholder={text.email}
-              value={email}
-              onChange={(e) => setEmail(e.target.value)}
-            />
-            <input
-              type="password"
-              placeholder={text.password}
-              value={password}
-              onChange={(e) => setPassword(e.target.value)}
-            />
-            <input
-              type="password"
-              placeholder={text.cmpassword}
-              value={confirmPassword}
-              onChange={(e) => setConfirmPassword(e.target.value)}
-            />
-            {!!errorResponse && (
-              <div className="errorMessage">{errorResponse}</div>
-            )}
-            <button type="submit">{text.button}</button>
+            <div className="container_inputs">
+              <input
+                className="input_signup"
+                type="text"
+                placeholder={text.name}
+                value={name}
+                onChange={(e) => setName(e.target.value)}
+              />
+              <input
+                className="input_signup"
+                type="text"
+                placeholder={text.username}
+                value={username}
+                onChange={(e) => setUsername(e.target.value)}
+              />
+              <input
+                className="input_signup"
+                type="email"
+                placeholder={text.email}
+                value={email}
+                onChange={(e) => setEmail(e.target.value)}
+              />
+              <input
+                className="input_signup"
+                type="password"
+                placeholder={text.password}
+                value={password}
+                onChange={(e) => setPassword(e.target.value)}
+              />
+              <input
+                className="input_signup"
+                type="password"
+                placeholder={text.cmpassword}
+                value={confirmPassword}
+                onChange={(e) => setConfirmPassword(e.target.value)}
+              />
+              <div className="seepassword_signup">
+                <input type="checkbox"/>
+                <label>{text.seepassword}</label>
+              </div>
+              <a href="www.google.com">{text.forgetpwd}</a>
+              {!!errorResponse && (
+                <div className="errorMessage">{errorResponse}</div>
+              )}
+              <button className="button_signup" type="submit">
+                {text.button}
+              </button>
+            </div>
           </form>
         ))}
       </div>
