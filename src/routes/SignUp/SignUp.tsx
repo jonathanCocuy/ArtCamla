@@ -21,14 +21,6 @@ export default function SignUp() {
     return <Navigate to="/dashboard" />;
   }
 
-  const alert1 = () => {
-    Swal.fire({
-      icon: "error",
-      title: "Oops...",
-      text: "Las contraseñas no coinciden",
-    });
-  };
-
   async function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
     e.preventDefault();
 
@@ -47,7 +39,12 @@ export default function SignUp() {
       });
 
       if (response.ok) {
-        console.log("El usuario se creo correctamente");
+        Swal.fire({
+          title: "Usuario creado correctamente",
+          text: "Puedes iniciar sesión",
+          icon: "success",
+        });
+        console.log("Usuario creado correctamente");
       } else {
         console.error("Algo ocurrio");
         const json = (await response.json()) as AuthResponseError;
@@ -58,15 +55,19 @@ export default function SignUp() {
     }
 
     if (password !== confirmPassword) {
-      return alert(alert1());
+      return Swal.fire({
+        icon: "error",
+        title: "Oops...",
+        text: "Las contraseñas no coinciden",
+      });
     }
   }
 
   return (
     <NavBarLayout>
       <div className="container_signup">
-        {data.signup.map((text: any) => (
-          <form onSubmit={handleSubmit} className="form_signup">
+        {data.signup.map((text: any, index: number) => (
+          <form onSubmit={handleSubmit} className="form_signup" key={index}>
             <h1 className="title_signup">{text.signup}</h1>
             {!!errorResponse && (
               <div className="errorMessage">{errorResponse}</div>
@@ -108,7 +109,7 @@ export default function SignUp() {
                 onChange={(e) => setConfirmPassword(e.target.value)}
               />
               <div className="seepassword_signup">
-                <input type="checkbox"/>
+                <input type="checkbox" />
                 <label>{text.seepassword}</label>
               </div>
               <a href="www.google.com">{text.forgetpwd}</a>

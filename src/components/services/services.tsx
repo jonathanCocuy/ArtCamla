@@ -5,8 +5,10 @@ import NavBarLayout from "../../layout/NavBarLayout";
 const Services = () => {
   return (
     <NavBarLayout>
-      {t.services.map((item) => (
-        <h1>{item.title}</h1>
+      {t.services.map((item, index) => (
+        <div key={index}>
+          <h1>{item.title}</h1>
+        </div>
       ))}
     </NavBarLayout>
   );

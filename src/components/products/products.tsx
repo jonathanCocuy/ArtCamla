@@ -5,8 +5,10 @@ import NavBarLayout from "../../layout/NavBarLayout";
 const Products = () => {
   return (
     <NavBarLayout>
-      {t.products.map((item) => (
-        <h1>{item.title}</h1>
+      {t.products.map((item, index) => (
+        <div key={index}>
+          <h1>{item.title}</h1>
+        </div>
       ))}
     </NavBarLayout>
   );

@@ -24,12 +24,18 @@
       font-size: 20px;
       transition: transform 0.25s ease;
       padding: 8px 16px;
+      color: black;
     }
 
     .items_options:hover {
       cursor: pointer;
+      transform: scale(1.03);
+      background: #d3b29e;
+    }
+
+    .items_options.active {
+      background: #d3b29e;
       font-weight: 600;
-      transform: scale(1.05);
     }
   }
 }
