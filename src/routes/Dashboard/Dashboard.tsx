@@ -1,3 +1,10 @@
+import React from "react";
+import NavBarLayout from "../../layout/NavBarLayout";
+
 export default function Dashboard() {
-    return <h1>Welcome to Dashboard</h1>
+  return (
+    <NavBarLayout>
+      <h1>Welcome to Dashboard</h1>
+    </NavBarLayout>
+  );
 }

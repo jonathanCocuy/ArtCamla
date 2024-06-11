@@ -11,12 +11,12 @@
     },
     {
       "content": "Contacto"
-    },
+    }
+  ],
+  "information": [
     {
-      "content": "Iniciar Sesión"
-    },
-    {
-      "content": "Registrarse"
+      "join": "Acceder",
+      "number": "+57 3162126640"
     }
   ],
   "login": [

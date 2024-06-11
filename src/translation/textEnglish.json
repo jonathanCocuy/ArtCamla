@@ -1,0 +1,65 @@
+{
+    "header": [
+      {
+        "content": "Home"
+      },
+      {
+        "content": "Services"
+      },
+      {
+        "content": "Products"
+      },
+      {
+        "content": "Contact"
+      },
+      {
+        "content": "Login"
+      },
+      {
+        "content": "Sign Up"
+      }
+    ],
+    "login": [
+      {
+        "login": "Login",
+        "username": "Enter your username",
+        "password": "Enter your password",
+        "button": "Login"
+      }
+    ],
+    "signup": [
+      {
+        "signup": "Sign Up",
+        "name": "Enter your first name",
+        "lastname": "Enter your last name",
+        "username": "Enter your username",
+        "email": "Enter your email",
+        "password": "Enter your password",
+        "cmpassword": "Confirm your password",
+        "wrongpassword": "Passwords do not match",
+        "seepassword": "Show password",
+        "forgetpwd": "Forgot your password?",
+        "button": "Submit"
+      }
+    ],
+    "home": [
+      {
+        "title": "Welcome to Camila Floral Beauty"
+      }
+    ],
+    "services": [
+      {
+        "title": "Our Services"
+      }
+    ],
+    "products": [
+      {
+        "title": "Our Products"
+      }
+    ],
+    "contact": [
+      {
+        "title": "Contact Us"
+      }
+    ]
+  }
