@@ -24,7 +24,8 @@
       "login": "Inicia Sesión",
       "username": "Ingresa tu usuario",
       "password": "Ingresa tu contraseña",
-      "button": "Ingresar"
+      "button": "Ingresar",
+      "signuplink": "No te haz registrado? Da clic aqui para hacerlo"
     }
   ],
   "signup": [

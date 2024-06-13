@@ -3,8 +3,10 @@ import NavBarLayout from "../../layout/NavBarLayout";
 import { useState } from "react";
 import { useAuth } from "../../auth/authProvider";
 import { Navigate } from "react-router-dom";
+import { Link } from "react-router-dom";
 
 import "./Login.scss";
+import Swal from "sweetalert2";
 
 export default function Login() {
   const [username, setUsername] = useState("");
@@ -16,9 +18,20 @@ export default function Login() {
     return <Navigate to="/dashboard" />;
   }
 
-  const handleSubmit = (e: any) => {
+  const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
+    if (!username || !password) {
+      Swal.fire({
+        title: "Error!",
+        text: "Los campos estan vacios",
+        icon: "error",
+      });
+    } else {
+      
+    }
   };
+
+  console.log(auth);
 
   return (
     <NavBarLayout>
@@ -41,12 +54,14 @@ export default function Login() {
                 value={password}
                 onChange={(e) => setPassword(e.target.value)}
               />
-              <button className="button_login" type="submit">{text.button}</button>
+              <button className="button_login" type="submit">
+                {text.button}
+              </button>
+              <Link to="/signup">{text.signuplink}</Link>
             </div>
           </form>
         ))}
       </div>
-      
     </NavBarLayout>
   );
 }
