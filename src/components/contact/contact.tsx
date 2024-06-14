@@ -7,7 +7,7 @@ const Contact = () => {
     <NavBarLayout>
       {t.contacto.map((item, index) => (
         <div key={index}>
-          <h1>{item.title}</h1>
+          <h1 style={{paddingTop: "100px"}}>{item.title}</h1>
         </div>
       ))}
     </NavBarLayout>

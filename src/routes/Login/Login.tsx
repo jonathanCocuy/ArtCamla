@@ -4,9 +4,9 @@ import { useState } from "react";
 import { useAuth } from "../../auth/authProvider";
 import { Navigate } from "react-router-dom";
 import { Link } from "react-router-dom";
+import { successAlert, errorAlert, errorLoginAlert } from "../../alerts/alerts";
 
 import "./Login.scss";
-import Swal from "sweetalert2";
 
 export default function Login() {
   const [username, setUsername] = useState("");
@@ -21,17 +21,15 @@ export default function Login() {
   const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     if (!username || !password) {
-      Swal.fire({
-        title: "Error!",
-        text: "Los campos estan vacios",
-        icon: "error",
-      });
+      return errorAlert();
+    } else if (username === "Jonathan" && password === "12345") {
+      successAlert();
     } else {
-      
+      errorLoginAlert();
     }
+    setUsername("");
+    setPassword("");
   };
-
-  console.log(auth);
 
   return (
     <NavBarLayout>

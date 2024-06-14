@@ -6,8 +6,8 @@ const Home = () => {
   return (
     <NavBarLayout>
       {t.home.map((item, index) => (
-        <div key={index}>
-          <h1>{item.title}</h1>
+        <div key={index} >
+          <h1 style={{paddingTop: "100px"}}>{item.title}</h1>
         </div>
       ))}
     </NavBarLayout>
